@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { signup } from "../redux/actions";
+import { signup, login } from "../redux/actions";
 class RegistationForm extends Component {
   state = {
     username: "",
@@ -13,13 +13,20 @@ class RegistationForm extends Component {
   };
 
   submitHandler = e => {
+    const type = this.props.match.url.substring(1);
     e.preventDefault();
-    this.props.signup(this.state, this.props.history);
+    {
+      type === "login"
+        ? this.props.login(this.state, this.props.history)
+        : this.props.signup(this.state, this.props.history);
+    }
   };
 
   render() {
     const type = this.props.match.url.substring(1);
-    if (this.props.user) return <Redirect to="/welcome" />;
+
+    if (this.props.user) return <Redirect to="/" />;
+    const errors = this.props.errors;
 
     return (
       <div className="card col-6 mx-auto p-0 mt-5">
@@ -29,8 +36,14 @@ class RegistationForm extends Component {
               ? "Login to send messages"
               : "Register an account"}
           </h5>
-
           <form onSubmit={this.submitHandler}>
+            {!!errors.length && (
+              <div className="alert alert-danger" role="alert">
+                {errors.map(error => (
+                  <p key={error}>{error}</p>
+                ))}
+              </div>
+            )}
             <div className="form-group">
               <input
                 className="form-control"
@@ -56,10 +69,14 @@ class RegistationForm extends Component {
             />
           </form>
         </div>
-
         <div className="card-footer">
-          <Link to={"/login"} className="btn btn-small btn-link">
-            {"login with an existing account"}
+          <Link
+            to={type === "login" ? "/signup" : "/login"}
+            className="btn btn-small btn-link"
+          >
+            {type === "login"
+              ? "register an account"
+              : "login with an existing account"}
           </Link>
         </div>
       </div>
@@ -69,13 +86,15 @@ class RegistationForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.user,
+    errors: state.errors.errors
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    signup: (userData, history) => dispatch(signup(userData, history))
+    signup: (userData, history) => dispatch(signup(userData, history)),
+    login: (userData, history) => dispatch(login(userData, history))
   };
 };
 

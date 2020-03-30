@@ -1,10 +1,10 @@
 import jwt_decode from "jwt-decode";
 
 import instance from "./instance";
+import { fetchChannels } from "./channels";
+import { setErrors } from "./errors";
 
-import { SET_CURRENT_USER } from "./actionTypes";
-
-// import { setErrors } from "./errors";
+import { SET_CURRENT_USER, SET_ERRORS } from "./actionTypes";
 
 export const checkForExpiredToken = () => {
   return dispatch => {
@@ -53,14 +53,11 @@ export const login = (userData, history) => async dispatch => {
     const { token } = res.data;
     const decodedUser = jwt_decode(token);
     setAuthToken(token);
+    dispatch(fetchChannels());
     dispatch(setCurrentUser(decodedUser));
-    alert("You are getting it in the login :D");
-
-    history.push("/users");
+    history.push("/private");
   } catch (error) {
-    alert(error);
-
-    console.error(error.response.data);
+    dispatch(setErrors(error.response.data));
   }
 };
 
@@ -70,19 +67,14 @@ export const signup = (userData, history) => async dispatch => {
     const { token } = res.data;
     const decodedUser = jwt_decode(token);
     setAuthToken(token);
-    alert("You are getting it in the sign up :D");
     dispatch(setCurrentUser(decodedUser));
-    history.push("/users");
+    history.push("/private");
   } catch (error) {
-    alert(error);
-
-    console.error(error.response.data);
+    dispatch(setErrors(error.response.data));
   }
 };
 
 export const logout = () => {
-  alert("BYE BYE");
-
   setAuthToken();
   return setCurrentUser(null);
 };
