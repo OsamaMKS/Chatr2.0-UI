@@ -18,6 +18,15 @@ class LoginForm extends Component {
     this.props.login(this.state, this.props.history);
   };
 
+  /*
+   *
+   * How are users seeing error messages if something goes wrong
+   * when they attempt to login/signup?
+   *
+   * You should move that card in Trello back to Backlog
+   *
+   */
+
   render() {
     const type = this.props.match.url.substring(1);
     if (this.props.user) return <Redirect to="/" />;

@@ -14,6 +14,13 @@ import Login from "./components/LoginForm";
 
 import bg from "./wmbg.jpg";
 
+/*
+ *
+ * The routes and components for login and signup don't need to be split.
+ * You can keep them as they were before, and make the joint component dynamic.
+ *
+ */
+
 class App extends Component {
   componentDidMount() {
     main();
