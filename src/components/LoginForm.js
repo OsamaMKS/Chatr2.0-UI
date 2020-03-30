@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { signup } from "../redux/actions";
-class RegistationForm extends Component {
+import { login } from "../redux/actions";
+
+class LoginForm extends Component {
   state = {
     username: "",
     password: ""
@@ -14,13 +15,12 @@ class RegistationForm extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-    this.props.signup(this.state, this.props.history);
+    this.props.login(this.state, this.props.history);
   };
 
   render() {
     const type = this.props.match.url.substring(1);
-    if (this.props.user) return <Redirect to="/welcome" />;
-
+    if (this.props.user) return <Redirect to="/" />;
     return (
       <div className="card col-6 mx-auto p-0 mt-5">
         <div className="card-body">
@@ -58,25 +58,23 @@ class RegistationForm extends Component {
         </div>
 
         <div className="card-footer">
-          <Link to={"/login"} className="btn btn-small btn-link">
-            {"login with an existing account"}
+          <Link to={"/signup"} className="btn btn-small btn-link">
+            {"register an account"}
           </Link>
         </div>
       </div>
     );
   }
 }
-
 const mapStateToProps = state => {
   return {
     user: state.user
   };
 };
-
 const mapDispatchToProps = dispatch => {
   return {
-    signup: (userData, history) => dispatch(signup(userData, history))
+    login: (userData, history) => dispatch(login(userData, history))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RegistationForm);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
