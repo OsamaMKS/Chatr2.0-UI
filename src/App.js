@@ -19,7 +19,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="content-wrapper text-white" style={{ backgroundImage: `url(${bg})` }} >
+      <div className="content-wrapper text-white " style={{ backgroundImage: `url(${bg})` }} >
         <div style={{ background: "rgba(255, 255, 255, 0)" }}>
           <NavBar />
           <Switch>
