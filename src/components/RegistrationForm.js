@@ -19,7 +19,7 @@ class RegistationForm extends Component {
 
   render() {
     const type = this.props.match.url.substring(1);
-    if (this.props.user) return <Redirect to="/welcome" />;
+    if (this.props.user) return <Redirect to="/welcome" />; // Should probably redirect to `/` not to `/welcome`
 
     return (
       <div className="card col-6 mx-auto p-0 mt-5">

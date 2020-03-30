@@ -47,6 +47,13 @@ const setCurrentUser = user => ({
   payload: user
 });
 
+/*
+ *
+ * You can combine the login() and signup() actions into one
+ * that receives the type as parameter.
+ *
+ */
+
 export const login = (userData, history) => async dispatch => {
   try {
     const res = await instance.post("/login/", userData);
@@ -54,7 +61,7 @@ export const login = (userData, history) => async dispatch => {
     const decodedUser = jwt_decode(token);
     setAuthToken(token);
     dispatch(setCurrentUser(decodedUser));
-    alert("You are getting it in the login :D");
+    alert("You are getting it in the login :D"); // <-- remove before merging to master, unless you want users to actually see this popup.
 
     history.push("/users");
   } catch (error) {
@@ -70,7 +77,7 @@ export const signup = (userData, history) => async dispatch => {
     const { token } = res.data;
     const decodedUser = jwt_decode(token);
     setAuthToken(token);
-    alert("You are getting it in the sign up :D");
+    alert("You are getting it in the sign up :D"); // <-- remove before merging to master, unless you want users to actually see this popup.
     dispatch(setCurrentUser(decodedUser));
     history.push("/users");
   } catch (error) {
@@ -81,7 +88,7 @@ export const signup = (userData, history) => async dispatch => {
 };
 
 export const logout = () => {
-  alert("BYE BYE");
+  alert("BYE BYE"); // <-- this should probably be removed before merging to master, unless it's meant to be there for actual users.
 
   setAuthToken();
   return setCurrentUser(null);

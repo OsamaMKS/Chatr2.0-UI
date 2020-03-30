@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Welcome extends Component {
+  /*
+   *
+   * Instead of rendering "Hello", you should probably redirect the user to another page.
+   *
+   */
   render() {
     return (
       <div>
@@ -20,8 +25,8 @@ class Welcome extends Component {
             <div className="overlay z-0" />
           </header>
         ) : (
-            <div>Hello</div>
-          )}
+          <div>Hello</div>
+        )}
       </div>
     );
   }
