@@ -7,19 +7,12 @@ import main from "./assets/js/main";
 // Components
 import NavBar from "./components/Navigation/NavBar";
 import Footer from "./components/Footer";
-import Welcome from "./components/Welcome";
 import RegistrationForm from "./components/RegistrationForm";
+import Welcome from "./components/Welcome";
 import SuperSecretPage from "./components/SuperSecretPage";
-import Login from "./components/LoginForm";
+import ChannelForm from "./components/ChannelForm";
 
 import bg from "./wmbg.jpg";
-
-/*
- *
- * The routes and components for login and signup don't need to be split.
- * You can keep them as they were before, and make the joint component dynamic.
- *
- */
 
 class App extends Component {
   componentDidMount() {
@@ -35,10 +28,10 @@ class App extends Component {
         <div style={{ background: "rgba(255, 255, 255, 0)" }}>
           <NavBar />
           <Switch>
+            <Route path="/(login|signup)" component={RegistrationForm} />
             <Route path="/welcome" component={Welcome} />
-            <Route path="/signup" component={RegistrationForm} />
-            <Route path="/login" component={Login} />
             <Route path="/private" component={SuperSecretPage} />
+            <Route path="/createChannel" component={ChannelForm} />
             <Redirect to="/welcome" />
           </Switch>
           <Footer />

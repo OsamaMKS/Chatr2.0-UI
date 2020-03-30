@@ -1,10 +1,10 @@
 import jwt_decode from "jwt-decode";
 
 import instance from "./instance";
+import { fetchChannels } from "./channels";
+import { setErrors } from "./errors";
 
-import { SET_CURRENT_USER } from "./actionTypes";
-
-// import { setErrors } from "./errors";
+import { SET_CURRENT_USER, SET_ERRORS } from "./actionTypes";
 
 export const checkForExpiredToken = () => {
   return dispatch => {
@@ -47,27 +47,17 @@ const setCurrentUser = user => ({
   payload: user
 });
 
-/*
- *
- * You can combine the login() and signup() actions into one
- * that receives the type as parameter.
- *
- */
-
 export const login = (userData, history) => async dispatch => {
   try {
     const res = await instance.post("/login/", userData);
     const { token } = res.data;
     const decodedUser = jwt_decode(token);
     setAuthToken(token);
+    dispatch(fetchChannels());
     dispatch(setCurrentUser(decodedUser));
-    alert("You are getting it in the login :D"); // <-- remove before merging to master, unless you want users to actually see this popup.
-
-    history.push("/users");
+    history.push("/private");
   } catch (error) {
-    alert(error);
-
-    console.error(error.response.data);
+    dispatch(setErrors(error.response.data));
   }
 };
 
@@ -77,19 +67,14 @@ export const signup = (userData, history) => async dispatch => {
     const { token } = res.data;
     const decodedUser = jwt_decode(token);
     setAuthToken(token);
-    alert("You are getting it in the sign up :D"); // <-- remove before merging to master, unless you want users to actually see this popup.
     dispatch(setCurrentUser(decodedUser));
-    history.push("/users");
+    history.push("/private");
   } catch (error) {
-    alert(error);
-
-    console.error(error.response.data);
+    dispatch(setErrors(error.response.data));
   }
 };
 
 export const logout = () => {
-  alert("BYE BYE"); // <-- this should probably be removed before merging to master, unless it's meant to be there for actual users.
-
   setAuthToken();
   return setCurrentUser(null);
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 // Components
 import SideNav from "./SideNav";
@@ -10,7 +11,7 @@ const NavBar = () => (
     className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
     id="mainNav"
   >
-    <Link className="navbar-brand" to="/welcome">
+    <Link className="navbar-brand" to="/">
       Chatr2.0
     </Link>
     <button
@@ -31,4 +32,8 @@ const NavBar = () => (
   </nav>
 );
 
-export default NavBar;
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps)(NavBar);
