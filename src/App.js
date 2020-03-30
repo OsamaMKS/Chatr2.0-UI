@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Welcome from "./components/Welcome";
 import RegistrationForm from "./components/RegistrationForm";
 import SuperSecretPage from "./components/SuperSecretPage";
+import bg from "./wmbg.jpg"
 
 class App extends Component {
   componentDidMount() {
@@ -18,15 +19,18 @@ class App extends Component {
 
   render() {
     return (
-      <div className="content-wrapper">
-        <NavBar />
-        <Switch>
-          <Route path="/welcome" component={Welcome} />
-          <Route path="/(login|signup)" component={RegistrationForm} />
-          <Route path="/private" component={SuperSecretPage} />
-          <Redirect to="/welcome" />
-        </Switch>
-        <Footer />
+      <div className="content-wrapper text-white" style={{ backgroundImage: `url(${bg})` }} >
+        <div style={{ background: "rgba(255, 255, 255, 0)" }}>
+          <NavBar />
+          <Switch>
+            <Route path="/welcome" component={Welcome} />
+            <Route path="/(login|signup)" component={RegistrationForm} />
+            <Route path="/private" component={SuperSecretPage} />
+            <Redirect to="/welcome" />
+          </Switch>
+          <Footer />
+        </div>
+
       </div>
     );
   }
