@@ -4,9 +4,7 @@ import {
   FETCH_CHANNELS
 } from "../actions/actionTypes";
 
-import { setErrors } from "./errors";
-
-import { resetErrors } from "./errors";
+import { setErrors, resetErrors } from "./errors";
 
 import instance from "./instance";
 
@@ -14,7 +12,6 @@ export const fetchChannels = () => {
   return async dispatch => {
     try {
       const res = await instance.get("channels/");
-      console.log(res)
       const channels = res.data;
       dispatch({
         type: FETCH_CHANNELS,

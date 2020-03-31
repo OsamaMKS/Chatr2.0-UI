@@ -170,6 +170,7 @@ body.fixed-nav {
     max-height: none;
   }
   #mainNav .navbar-collapse .navbar-sidenav {
+    overflow: auto;
     position: absolute;
     top: 0;
     left: 0;
