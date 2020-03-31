@@ -9,6 +9,7 @@ const channelReducer = (state = initialState, action) => {
     case CHANNEL_DETAIL:
       const channel = action.payload;
       return {
+
         ...state,
         channelDetail: channel
       };

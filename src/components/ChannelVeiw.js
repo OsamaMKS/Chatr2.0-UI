@@ -8,41 +8,53 @@ class ChannelVeiw extends Component {
 
     }
     getMsg = () => {
+
         return (
             this.props.channel.find(msg => {
                 if (msg.channel) {
                     return msg
                 }
             }
-            ))
+            )
+        )
+
     }
-    componentWillUpdate() {
-
-
-        if (this.props.channel !== undefined) {
-            if (this.props.channel === null)
-                this.props.ChannelDetail(this.props.match.params.channelID);
-
-            else if (this.props.channel && (+this.props.match.params.channelID !== +this.getMsg().channel)) {
-                this.props.ChannelDetail(this.props.match.params.channelID);
-                console.log(this.getMsg())
-            }
-
+    componentDidUpdate() {
+        if (!this.props.channel) {
+            console.log(1)
+            this.props.ChannelDetail(this.props.match.params.channelID);
         }
+        else if (this.props.channel && (+this.props.match.params.channelID !== +this.getMsg().channel)) {
+            console.log(2)
+            this.props.ChannelDetail(this.props.match.params.channelID);
+            console.log(this.getMsg().channel)
+        }
+
+
     }
 
 
 
 
     render() {
-        if (this.props.channel) {
+        if (this.props.channel && this.props.channel !== null) {
             if (this.props.channel.filter(channel => channel.channel === this.props.channels.id)) {
                 return (
                     this.props.channel.map(msg => {
                         return (
                             <div style={{ marginLeft: "20px" }}>
-                                {msg.message}
-                                <br></br>
+                                <h5>
+
+
+                                    {msg.username}
+
+                                    <small>
+
+                                        {" : " + msg.message}
+                                    </small>
+
+                                    <br></br>
+                                </h5>
                             </div>
 
                         )
