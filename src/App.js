@@ -11,9 +11,10 @@ import RegistrationForm from "./components/RegistrationForm";
 import Welcome from "./components/Welcome";
 import SuperSecretPage from "./components/SuperSecretPage";
 import ChannelForm from "./components/ChannelForm";
-import ChannelVeiw from "./components/ChannelVeiw";
+import ChannelView from "./components/ChannelView";
 
 import bg from "./wmbg.jpg";
+import MessagesForm from "./components/MessagesForm";
 
 class App extends Component {
   componentDidMount() {
@@ -31,7 +32,11 @@ class App extends Component {
           <Switch>
             <Route path="/(login|signup)" component={RegistrationForm} />
             <Route path="/welcome" component={Welcome} />
-            <Route path="/ChannelVeiw/:channelID" component={ChannelVeiw} />
+            <Route
+              path="/channelView/:channelID/send"
+              component={MessagesForm}
+            />
+            <Route path="/ChannelView/:channelID" component={ChannelView} />
             <Route path="/private" component={SuperSecretPage} />
             <Route path="/createChannel" component={ChannelForm} />
             <Redirect to="/welcome" />

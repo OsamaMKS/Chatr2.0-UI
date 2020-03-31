@@ -3,7 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchChannels, channelDetail } from "../redux/actions";
 
-class ChannelVeiw extends Component {
+class ChannelView extends Component {
   componentDidMount() {
     this.props.ChannelDetail(this.props.match.params.channelID);
   }
@@ -32,7 +32,8 @@ class ChannelVeiw extends Component {
         return this.props.channel.map(msg => {
           return (
             <div style={{ marginLeft: "20px" }}>
-              {msg.message}
+              {msg.username}
+              {" : " + msg.message}
               <br></br>
             </div>
           );
@@ -58,4 +59,4 @@ const mapDispatchToProps = dispatch => {
     ChannelDetail: channelID => dispatch(channelDetail(channelID))
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelVeiw);
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelView);

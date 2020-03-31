@@ -29,7 +29,7 @@ export const addChannel = (newChannelName, resetForm, history) => {
       const res = await instance.post("channels/create/", newChannelName);
 
       const channel = res.data;
-      dispatch(resetErrors());
+      dispatch(setErrors());
 
       dispatch({
         type: ADD_CHANNEL,

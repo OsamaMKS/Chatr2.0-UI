@@ -14,7 +14,7 @@ const ChannelNavLink = ({ channel }) => (
   >
     <NavLink
       className="nav-link"
-      to={`/ChannelVeiw/${channel.id}`}
+      to={`/ChannelView/${channel.id}`}
       onclick="scrollWin(0, 50)"
     >
       <FontAwesomeIcon icon={faHashtag} />

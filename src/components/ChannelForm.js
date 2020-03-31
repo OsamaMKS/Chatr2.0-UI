@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
-import { addChannel, resetErrors } from "../redux/actions";
+import { addChannel } from "../redux/actions";
 import { connect } from "react-redux";
 
 class ChannelForm extends Component {
@@ -87,8 +87,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     addChannel: (newChannelName, resetForm, history) =>
-      dispatch(addChannel(newChannelName, resetForm, history)),
-    resetErrors: () => dispatch(resetErrors())
+      dispatch(addChannel(newChannelName, resetForm, history))
   };
 };
 

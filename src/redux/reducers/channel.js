@@ -1,7 +1,8 @@
-import { CHANNEL_DETAIL } from "../actions/actionTypes";
+import { CHANNEL_DETAIL, SEND_MESSAGE } from "../actions/actionTypes";
 
 const initialState = {
-  channelDetail: null
+  channelDetail: null,
+  messages: []
 };
 
 const channelReducer = (state = initialState, action) => {
@@ -9,9 +10,14 @@ const channelReducer = (state = initialState, action) => {
     case CHANNEL_DETAIL:
       const channel = action.payload;
       return {
-
         ...state,
         channelDetail: channel
+      };
+    case SEND_MESSAGE:
+      const messages = action.payload;
+      return {
+        ...state,
+        messages: state.messages.concat(action.payload)
       };
     default:
       return state;
