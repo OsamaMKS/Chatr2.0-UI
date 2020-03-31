@@ -12,6 +12,7 @@ export const fetchChannels = () => {
   return async dispatch => {
     try {
       const res = await instance.get("channels/");
+      console.log(res)
       const channels = res.data;
       dispatch({
         type: FETCH_CHANNELS,
