@@ -13,8 +13,12 @@ import SuperSecretPage from "./components/SuperSecretPage";
 import ChannelForm from "./components/ChannelForm";
 import ChannelView from "./components/ChannelView";
 
+<<<<<<< HEAD
 import bg from "./wmbg.jpg";
 import MessagesForm from "./components/MessagesForm";
+=======
+import bg from "./wmwp.jpg";
+>>>>>>> acaa21b17fa3eb9d82797aa667c936fc4c83f610
 
 class App extends Component {
   componentDidMount() {
