@@ -12,9 +12,13 @@ const ChannelNavLink = ({ channel }) => (
     data-placement="right"
     title={channel.name}
   >
-    <NavLink className="nav-link" to={`/channels/${channel.name}`} onclick="scrollWin(0, 50)">
+    <NavLink
+      className="nav-link"
+      to={`/ChannelVeiw/${channel.id}`}
+      onclick="scrollWin(0, 50)"
+    >
       <FontAwesomeIcon icon={faHashtag} />
-      <span className="nav-link-text"  > {channel.name}</span>
+      <span className="nav-link-text"> {channel.name}</span>
     </NavLink>
   </li>
 );

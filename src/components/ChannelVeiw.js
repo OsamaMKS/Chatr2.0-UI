@@ -1,44 +1,36 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchChannels } from "../redux/actions"
+import { fetchChannels, channelDetail } from "../redux/actions";
 
 class ChannelVeiw extends Component {
-    state = {
-        channel: { name: "" }
-    }
+  componentDidMount() {
+    this.props.ChannelDetail(this.props.match.params.channelID);
+  }
 
-    componentDidMount() {
-        const channelID = this.props.match.params.channelID;
-        const channel = this.props.channels.find(channel => channel.id === +channelID);
-        this.setState({ channel: channel })
-        console.log(channelID)
-        console.log(channel)
-        console.log(this.props.channels)
-
+  render() {
+    if (this.props.channel) {
+      return this.props.channel
+        .find(channelID => channelID === this.props.channel.channel)
+        .map(channel => {
+          return <div>{channel.message}</div>;
+        });
+    } else {
+      return <div>Loading...</div>;
     }
-
-    render() {
-        return (
-            <div>
-                ffffffffffffffffffffff
-                fffffffffffffffffff
-            </div>
-        );
-    }
+  }
 }
-
 const mapStateToProps = state => {
-    return {
-        user: state.user,
-        channels: state.rootChannels.channels
-    };
+  return {
+    user: state.user,
+    channels: state.rootChannels.channels,
+    channel: state.rootChannel.channelDetail
+  };
 };
 
 const mapDispatchToProps = dispatch => {
-
-    return {
-        fetchChannels: () => dispatch(fetchChannels())
-    };
+  return {
+    ChannelDetail: channelID => dispatch(channelDetail(channelID))
+  };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelVeiw);

@@ -1,7 +1,7 @@
 import { CHANNEL_DETAIL } from "../actions/actionTypes";
 
 const initialState = {
-  channelDetail: []
+  channelDetail: null
 };
 
 const channelReducer = (state = initialState, action) => {
