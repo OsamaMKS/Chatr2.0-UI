@@ -451,7 +451,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   .sidenav-third-level
   > li
   > a {
-  color: #1a472a;
+  color: #343a40;
 }
 
 #mainNav.navbar-dark
@@ -495,11 +495,11 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 
 @media (min-width: 992px) {
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav {
-    background: #1a472a;
+    background: #343a40;
   }
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a {
     color: white !important;
-    background-color: #1a472a;
+    background-color: #343a40
   }
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a:focus,
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a:hover {
