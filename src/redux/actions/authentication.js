@@ -25,6 +25,7 @@ export const checkForExpiredToken = () => {
         setAuthToken(token);
         // Set user
         dispatch(setCurrentUser(user));
+        dispatch(fetchChannels())
       } else {
         dispatch(logout());
       }
