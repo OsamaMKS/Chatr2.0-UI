@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchChannels, channelDetail } from "../redux/actions";
+import Messages from "./MessagesForm";
 
 class ChannelView extends Component {
   componentDidMount() {
@@ -32,9 +33,14 @@ class ChannelView extends Component {
         return this.props.channel.map(msg => {
           return (
             <div style={{ marginLeft: "20px" }}>
-              {msg.username}
-              {" : " + msg.message}
-              <br></br>
+              <div class="card border-dark mb-3" style={{ maxWidth: "40rem" }}>
+                <div class="card-body ">
+                  <h5 class="text-secondary">
+                    {msg.username + ": "}
+                    <h6 class="text-dark">{msg.message}</h6>{" "}
+                  </h5>
+                </div>
+              </div>
             </div>
           );
         });
