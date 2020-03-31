@@ -36,12 +36,19 @@ class SendingMessages extends Component {
       <div style={{ textAlign: "center", position: "relative" }}>
         <form name="messageForm" onSubmit={this.submitHandler}>
           <div className="row" id="scroller">
-            <div className="col-8">
+            <div >
+              <label for="colFormLabelLg" style={{ marginLeft: "1rem " }} >message:</label>
               <input
+                type="text"
+                class="form-control form-control-lg"
+                id="colFormLabelLg"
                 style={{
                   borderColor: "#e30090",
-                  borderWidth: "0px",
-                  hight: "100px"
+                  borderWidth: "2px",
+                  hight: "100px",
+                  width: "65rem",
+                  marginLeft: "1%",
+                  selfAlign: "center"
                 }}
                 name="message"
                 value={this.state.message}
@@ -51,7 +58,7 @@ class SendingMessages extends Component {
               ></input>
             </div>
 
-            <button id="send" type="submit" value="Send">
+            <button id="send" type="submit" value="Send" style={{ marginLeft: "1rem " }}>
               <FontAwesomeIcon icon={faPaperPlane} />
             </button>
           </div>
