@@ -24,7 +24,7 @@ class App extends Component {
   render() {
     return (
       <div
-        className="content-wrapper text-white"
+        className="content-wrapper text-dark"
         style={{ backgroundImage: `url(${bg})` }}
       >
         <div style={{ background: "rgba(255, 255, 255, 0)" }}>
