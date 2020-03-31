@@ -3,6 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchChannels, channelDetail } from "../redux/actions";
 import Messages from "./MessagesForm";
+import Loading from "../loading.gif"
 
 class ChannelView extends Component {
   componentDidMount() {
@@ -25,30 +26,25 @@ class ChannelView extends Component {
 
   render() {
     if (this.props.channel) {
-      if (
-        this.props.channel.filter(
-          channel => channel.channel === this.props.channels.id
-        )
-      ) {
-        return this.props.channel.map(msg => {
-          return (
-            <div style={{ marginLeft: "20px" }}>
-              <div class="card border-dark mb-3" style={{ maxWidth: "40rem" }}>
-                <div class="card-body ">
-                  <h5 class="text-secondary">
-                    {msg.username + ": "}
-                    <h6 class="text-dark">{msg.message}</h6>{" "}
-                  </h5>
-                </div>
+      return this.props.channel.map(msg => {
+        return (
+          <div style={{ marginLeft: "20px", textAlign: "left" }}>
+
+            <div class="card border-dark mb-3" style={{ maxWidth: "40rem" }}>
+              <div class="card-body ">
+                <h5 class="text-secondary">
+                  {msg.username + ": "}
+                  <h6 class="text-dark">{msg.message}</h6>{" "}
+                </h5>
               </div>
             </div>
-          );
-        });
-      } else {
-        return <div>Loading...</div>;
-      }
-    } else {
-      return <div>Loading...</div>;
+          </div>
+        );
+      });
+
+    }
+    else {
+      return <div><img src={Loading} alt="" /></div>;
     }
   }
 }
