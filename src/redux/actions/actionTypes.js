@@ -11,3 +11,6 @@ export const SET_ERRORS = "SET_ERRORS";
 
 //Channel
 export const CHANNEL_DETAIL = "CHANNEL_DETAIL";
+
+//Msg
+export const SEND_MESSAGE = "SEND_MESSAGE";
