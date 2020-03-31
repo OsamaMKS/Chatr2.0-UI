@@ -1,20 +1,28 @@
-import React from "react";
+import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { fetchChannels } from "../redux/actions";
+class SuperSecretPage extends Component {
+  componentDidMount() {
+    this.props.fetch();
+  }
 
-const SuperSecretPage = ({ user }) => {
-  if (!user) return <Redirect to="/login" />;
-
-  return (
-    <div>
-      <h1>this page has all the secrets</h1>
-      <p>now that you're logged in you can see this page</p>
-    </div>
-  );
-};
-
-const mapStateToProps = ({ user }) => ({
-  user
+  render() {
+    if (!this.props.user) return <Redirect to="/login" />;
+    return (
+      <div>
+        <h1>this page has all the secrets</h1>
+        <p>now that you're logged in you can see this page</p>
+      </div>
+    );
+  }
+}
+const mapStateToProps = state => ({
+  user: state.user
 });
 
-export default connect(mapStateToProps)(SuperSecretPage);
+const mapDispatchToprops = dispatch => ({
+  fetch: () => dispatch(fetchChannels())
+});
+
+export default connect(mapStateToProps, mapDispatchToprops)(SuperSecretPage);
