@@ -13,7 +13,7 @@ import SuperSecretPage from "./components/SuperSecretPage";
 import ChannelForm from "./components/ChannelForm";
 import ChannelVeiw from "./components/ChannelVeiw";
 
-import bg from "./wmbg.jpg";
+import bg from "./wmwp.jpg";
 
 class App extends Component {
   componentDidMount() {
