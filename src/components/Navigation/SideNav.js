@@ -21,7 +21,7 @@ class SideNav extends React.Component {
     ));
     if (this.props.user) {
       return (
-        <div style={{ textAlign: "left" }} >
+        <div style={{ textAlign: "left" }}>
           <ul
             className="navbar-nav navbar-sidenav bgside"
             id="exampleAccordion"
@@ -55,7 +55,7 @@ class SideNav extends React.Component {
               </span>
             </li>
           </ul>
-        </div >
+        </div>
       );
     } else {
       return <Redirect to="/" />;

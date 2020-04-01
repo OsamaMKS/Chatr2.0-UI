@@ -1,14 +1,14 @@
-import { CHANNEL_DETAIL, SEND_MESSAGE } from ".//actionTypes";
+import { SET_MESSAGE, ADD_MESSAGE } from ".//actionTypes";
 import { setErrors } from "./errors";
 import instance from "./instance";
 
-export const channelDetail = channelID => async dispatch => {
-  dispatch({ type: CHANNEL_DETAIL, payload: null });
+export const setMessage = channelID => async dispatch => {
+  dispatch({ type: SET_MESSAGE, payload: null });
   try {
     const res = await instance.get(`channels/${channelID}/`);
     const channel = res.data;
     dispatch({
-      type: CHANNEL_DETAIL,
+      type: SET_MESSAGE,
       payload: channel
     });
   } catch (error) {
@@ -31,7 +31,7 @@ export const sendMessages = (channelID, message, user, resetForm) => {
       };
 
       dispatch({
-        type: SEND_MESSAGE,
+        type: ADD_MESSAGE,
         payload: messageDetail
       });
       resetForm();
