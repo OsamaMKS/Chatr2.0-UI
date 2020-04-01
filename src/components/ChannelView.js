@@ -6,17 +6,23 @@ import Loading from "../assets/images/loading.gif";
 
 class ChannelView extends Component {
   componentDidMount() {
-    this.props.SetMessage(this.props.match.params.channelID);
+    const channelID = this.props.match.params.channelID;
+    this.props.SetMessage(channelID);
+    this.interval = setInterval(() => this.props.SetMessage(channelID), 5000);
   }
 
   componentDidUpdate(prevProps) {
     const channelID = this.props.match.params.channelID;
     if (prevProps.match.params.channelID !== channelID) {
       this.props.SetMessage(channelID);
+      clearInterval(this.interval);
+      this.interval = setInterval(() => this.props.SetMessage(channelID), 5000);
     }
   }
 
-  msgs() { }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
   render() {
     if (this.props.channel) {
@@ -78,7 +84,7 @@ const mapStateToProps = state => {
   return {
     user: state.user,
     channels: state.rootChannels.channels,
-    channel: state.rootChannel.setMessage
+    channel: state.rootChannel.setMessages
   };
 };
 

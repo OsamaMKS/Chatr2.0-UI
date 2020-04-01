@@ -1,7 +1,7 @@
 import { SET_MESSAGE, ADD_MESSAGE } from "../actions/actionTypes";
 
 const initialState = {
-  channelDetail: null,
+  setMessages: null,
   messages: []
 };
 
@@ -11,7 +11,7 @@ const channelReducer = (state = initialState, action) => {
       const channel = action.payload;
       return {
         ...state,
-        channelDetail: channel
+        setMessages: channel
       };
     case ADD_MESSAGE:
       return {
