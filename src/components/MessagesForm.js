@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { setMessage, sendMessages } from "../redux/actions";
@@ -29,6 +29,7 @@ class SendingMessages extends Component {
     );
   };
   render() {
+
     if (!this.props.user) return <Redirect to="/login" />;
 
     return (
@@ -56,7 +57,8 @@ class SendingMessages extends Component {
                 placeholder="Write your message..."
                 onChange={this.changeHandler}
                 className="input"
-              ></input>
+              >
+              </input>
             </div>
 
             <button

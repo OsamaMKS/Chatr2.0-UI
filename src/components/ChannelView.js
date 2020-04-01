@@ -16,7 +16,7 @@ class ChannelView extends Component {
     }
   }
 
-  msgs() {}
+  msgs() { }
 
   render() {
     if (this.props.channel) {
@@ -29,7 +29,9 @@ class ChannelView extends Component {
                   class="card border-dark mb-3"
                   style={{
                     maxWidth: "40rem",
-                    background: "rgba(255, 255, 255, 0.71)"
+                    background: "rgba(255, 255, 255, 0.71)",
+                    textShadow:
+                      "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff"
                   }}
                 >
                   <div class="card-body ">
