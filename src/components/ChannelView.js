@@ -24,7 +24,10 @@ class ChannelView extends Component {
         return (
           <div style={{ marginLeft: "20px", textAlign: "left" }}>
 
-            <div class="card border-dark mb-3" style={{ maxWidth: "40rem", background: "rgba(255, 255, 255, 0.71)" }} >
+            <div class="card border-dark mb-3" style={{
+              maxWidth: "40rem", background: "rgba(255, 255, 255, 0.71)", textShadow:
+                "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff"
+            }} >
               <div class="card-body ">
                 <h5 class="text-secondary">
                   {msg.username + ": "}

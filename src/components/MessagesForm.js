@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { channelDetail, sendMessages } from "../redux/actions";
@@ -6,6 +6,8 @@ import Messages from "../redux/reducers/channel";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import 'emoji-mart/css/emoji-mart.css'
+import { Picker } from 'emoji-mart'
 
 class SendingMessages extends Component {
   state = {
@@ -30,6 +32,7 @@ class SendingMessages extends Component {
     );
   };
   render() {
+
     if (!this.props.user) return <Redirect to="/login" />;
 
     return (
@@ -55,9 +58,9 @@ class SendingMessages extends Component {
                 placeholder="Write your message..."
                 onChange={this.changeHandler}
                 className="input"
-              ></input>
+              >
+              </input>
             </div>
-
             <button id="send" type="submit" value="Send" style={{ marginLeft: "1rem " }}>
               <FontAwesomeIcon icon={faPaperPlane} />
             </button>
