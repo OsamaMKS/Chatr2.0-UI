@@ -3,10 +3,6 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchChannels } from "../redux/actions";
 class SuperSecretPage extends Component {
-  componentDidMount() {
-    this.props.fetch();
-  }
-
   render() {
     if (!this.props.user) return <Redirect to="/login" />;
     return (

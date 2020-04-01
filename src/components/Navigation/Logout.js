@@ -1,4 +1,4 @@
-import * as actionCreators from "../redux/actions";
+import * as actionCreators from "../../redux/actions";
 import React from "react";
 import { connect } from "react-redux";
 // Fontawesome
