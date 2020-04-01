@@ -15,10 +15,11 @@ class RegistationForm extends Component {
   submitHandler = e => {
     const type = this.props.match.url.substring(1);
     e.preventDefault();
-    {
-      type === "login"
-        ? this.props.login(this.state, this.props.history)
-        : this.props.signup(this.state, this.props.history);
+
+    if (type === "login") {
+      this.props.login(this.state, this.props.history);
+    } else {
+      this.props.signup(this.state, this.props.history);
     }
   };
 

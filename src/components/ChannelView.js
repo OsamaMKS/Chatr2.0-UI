@@ -30,9 +30,12 @@ class ChannelView extends Component {
         <div>
           {this.props.channel.map(msg => {
             return (
-              <div style={{ marginLeft: "20px", textAlign: "left" }}>
+              <div
+                key={msg.id}
+                style={{ marginLeft: "20px", textAlign: "left" }}
+              >
                 <div
-                  class="card border-dark mb-3"
+                  className="card border-dark mb-3"
                   style={{
                     maxWidth: "40rem",
                     background: "rgba(255, 255, 255, 0.71)",
@@ -40,35 +43,33 @@ class ChannelView extends Component {
                       "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff"
                   }}
                 >
-                  <div class="card-body ">
-                    <h5 class="text-secondary">
-                      {msg.username + ": "}
-                      <h6 class="text-dark">{msg.message}</h6>{" "}
-                    </h5>
+                  <div className="card-body ">
+                    <h5 className="text-secondary">{msg.username + ": "}</h5>
+                    <h6 className="text-dark">{msg.message}</h6>
                   </div>
                 </div>
               </div>
             );
           })}
-          <nav
+          {/* <nav
             className="navbar navbar-expand-md navbar-dark bg-dark fixed-bottom border border-white"
             style={{ marginLeft: "20%", width: "75%" }}
+          > */}
+          <div className="navbar-brand">
+            <Messages channelID={this.props.match.params.channelID} />
+          </div>
+          <button
+            className="navbar-toggler "
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarResponsive"
+            aria-controls="navbarResponsive"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
-            <div className="navbar-brand">
-              <Messages channelID={this.props.match.params.channelID} />
-            </div>
-            <button
-              className="navbar-toggler "
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarResponsive"
-              aria-controls="navbarResponsive"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon" />
-            </button>
-          </nav>
+            <span className="navbar-toggler-icon" />
+          </button>
+          {/* </nav> */}
         </div>
       );
     } else {
