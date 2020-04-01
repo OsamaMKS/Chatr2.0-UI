@@ -21,7 +21,7 @@ class SideNav extends React.Component {
     ));
     if (this.props.user) {
       return (
-        <div style={{ textAlign: "left" }} >
+        <div style={{ textAlign: "left" }}>
           <ul
             className="navbar-nav navbar-sidenav bgside"
             id="exampleAccordion"
@@ -55,9 +55,14 @@ class SideNav extends React.Component {
               </span>
             </li>
           </ul>
-        </div >
+        </div>
       );
     } else {
+      /**
+       * This seems unnecessary and wasteful.
+       * This component will ALWAYS be on the screen,
+       * rendering a redirect means it could be called over and over again
+       */
       return <Redirect to="/" />;
     }
   }

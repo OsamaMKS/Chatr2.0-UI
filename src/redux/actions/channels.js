@@ -1,10 +1,6 @@
-import {
-  ADD_CHANNEL,
-  SET_ERRORS,
-  FETCH_CHANNELS
-} from "../actions/actionTypes";
+import { ADD_CHANNEL, FETCH_CHANNELS } from "../actions/actionTypes";
 
-import { setErrors, resetErrors } from "./errors";
+import { setErrors } from "./errors";
 
 import instance from "./instance";
 
@@ -18,11 +14,15 @@ export const fetchChannels = () => {
         payload: channels
       });
     } catch (error) {
+      // No need to setErrors if this isn't part of a form
       dispatch(setErrors(error));
     }
   };
 };
 
+/**
+ * A nice feature would be to redirect the user to the channel they just created
+ */
 export const addChannel = (newChannelName, resetForm, history) => {
   return async dispatch => {
     try {

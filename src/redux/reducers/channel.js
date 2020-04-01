@@ -1,5 +1,14 @@
+/**
+ * Rename this file to messages.js
+ */
+
 import { CHANNEL_DETAIL, SEND_MESSAGE } from "../actions/actionTypes";
 
+/**
+ * Which one of these states are you using??
+ *
+ * Simplify to `initialState = []`
+ */
 const initialState = {
   channelDetail: null,
   messages: []

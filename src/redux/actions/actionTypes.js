@@ -10,7 +10,7 @@ export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const SET_ERRORS = "SET_ERRORS";
 
 //Channel
-export const CHANNEL_DETAIL = "CHANNEL_DETAIL";
+export const CHANNEL_DETAIL = "CHANNEL_DETAIL"; // <-- rename - either SET_MESSAGES or FETCH_MESSAGES
 
 //Msg
-export const SEND_MESSAGE = "SEND_MESSAGE";
+export const SEND_MESSAGE = "SEND_MESSAGE"; // <-- ADD_MESSAGE

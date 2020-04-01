@@ -3,13 +3,12 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchChannels, channelDetail } from "../redux/actions";
 import Messages from "./MessagesForm";
-import Loading from "../loading.gif"
+import Loading from "../assets/images/loading.gif";
 
 class ChannelView extends Component {
   componentDidMount() {
     this.props.ChannelDetail(this.props.match.params.channelID);
   }
-
 
   componentDidUpdate(prevProps) {
     const channelID = this.props.match.params.channelID;
@@ -23,8 +22,13 @@ class ChannelView extends Component {
       return this.props.channel.map(msg => {
         return (
           <div style={{ marginLeft: "20px", textAlign: "left" }}>
-
-            <div class="card border-dark mb-3" style={{ maxWidth: "40rem", background: "rgba(255, 255, 255, 0.71)" }} >
+            <div
+              class="card border-dark mb-3"
+              style={{
+                maxWidth: "40rem",
+                background: "rgba(255, 255, 255, 0.71)"
+              }}
+            >
               <div class="card-body ">
                 <h5 class="text-secondary">
                   {msg.username + ": "}
@@ -35,10 +39,12 @@ class ChannelView extends Component {
           </div>
         );
       });
-
-    }
-    else {
-      return <div><img src={Loading} alt="" /></div>;
+    } else {
+      return (
+        <div>
+          <img src={Loading} alt="" />
+        </div>
+      );
     }
   }
 }

@@ -15,7 +15,7 @@ const NavBar = () => (
     >
       <Link className="navbar-brand" to="/">
         Chatr2.0
-    </Link>
+      </Link>
       <button
         className="navbar-toggler navbar-toggler-right"
         type="button"
@@ -35,10 +35,9 @@ const NavBar = () => (
 
     <nav
       className="navbar navbar-expand-md navbar-dark bg-dark fixed-bottom border border-white"
-      style={{ marginLeft: "20%", width: "75%", }}
+      style={{ marginLeft: "20%", width: "75%" }}
     >
-      <div className="navbar-brand" >
-
+      <div className="navbar-brand">
         <Messages />
       </div>
       <button
@@ -49,7 +48,6 @@ const NavBar = () => (
         aria-controls="navbarResponsive"
         aria-expanded="false"
         aria-label="Toggle navigation"
-
       >
         <span className="navbar-toggler-icon" />
       </button>
@@ -57,9 +55,11 @@ const NavBar = () => (
   </>
 );
 
+/**
+ * You're not using this
+ */
 const mapStateToProps = state => ({
-  user: state.user,
-
+  user: state.user
 });
 
 export default connect(mapStateToProps)(NavBar);
