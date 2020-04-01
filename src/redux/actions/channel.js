@@ -3,7 +3,6 @@ import { setErrors } from "./errors";
 import instance from "./instance";
 
 export const setMessage = channelID => async dispatch => {
-  dispatch({ type: SET_MESSAGE, payload: null });
   try {
     const res = await instance.get(`channels/${channelID}/`);
     const channel = res.data;

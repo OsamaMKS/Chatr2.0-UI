@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { addChannel } from "../redux/actions";
 import { connect } from "react-redux";
-
 class ChannelForm extends Component {
   state = {
-    name: ""
+    name: "",
+    image_url: ""
   };
 
   textChangeHandler = event => {
@@ -14,7 +14,8 @@ class ChannelForm extends Component {
 
   resetForm = () =>
     this.setState({
-      name: ""
+      name: "",
+      image_url: ""
     });
 
   submitChannel = event => {
@@ -58,6 +59,19 @@ class ChannelForm extends Component {
                   name="name"
                   value={this.state.name}
                   onChange={this.textChangeHandler}
+                />
+              </div>
+              <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                  <span className="input-group-text bg-dark text-white">
+                    Image URL
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  className="form-control border-0 text-black"
+                  name="image_url"
+                  onChange={this.onTextchange}
                 />
               </div>
               <div className="text-center">
