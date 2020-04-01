@@ -9,13 +9,7 @@ class ChannelView extends Component {
   componentDidMount() {
     this.props.ChannelDetail(this.props.match.params.channelID);
   }
-  getMsg = () => {
-    return this.props.channel.find(msg => {
-      if (msg.channel) {
-        return msg;
-      }
-    });
-  };
+
 
   componentDidUpdate(prevProps) {
     const channelID = this.props.match.params.channelID;
@@ -30,7 +24,7 @@ class ChannelView extends Component {
         return (
           <div style={{ marginLeft: "20px", textAlign: "left" }}>
 
-            <div class="card border-dark mb-3" style={{ maxWidth: "40rem" }}>
+            <div class="card border-dark mb-3" style={{ maxWidth: "40rem", background: "rgba(255, 255, 255, 0.71)" }} >
               <div class="card-body ">
                 <h5 class="text-secondary">
                   {msg.username + ": "}
