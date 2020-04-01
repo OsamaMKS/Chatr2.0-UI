@@ -1,5 +1,10 @@
 import { ADD_CHANNEL, FETCH_CHANNELS } from "../actions/actionTypes";
 
+/**
+ * If you change this to `initialState = []`
+ * it can simplify all your mapStateToProps
+ */
+
 const initialState = {
   channels: []
 };

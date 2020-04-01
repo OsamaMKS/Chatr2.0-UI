@@ -13,7 +13,7 @@ import SuperSecretPage from "./components/SuperSecretPage";
 import ChannelForm from "./components/ChannelForm";
 import ChannelView from "./components/ChannelView";
 
-import bg from "./wmwp.jpg";
+import bg from "./assets/images/wmbg.jpg";
 import MessagesForm from "./components/MessagesForm";
 
 class App extends Component {
@@ -36,6 +36,7 @@ class App extends Component {
               path="/channelView/:channelID/send"
               component={MessagesForm}
             />
+            {/* Try to make this contain the channel name again - it's better UX in the frontend */}
             <Route path="/ChannelView/:channelID" component={ChannelView} />
             <Route path="/private" component={SuperSecretPage} />
             <Route path="/createChannel" component={ChannelForm} />

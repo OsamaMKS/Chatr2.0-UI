@@ -2,9 +2,15 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchChannels } from "../redux/actions";
+
+/**
+ * This page was supposed to be a test for your authentication
+ *
+ * Either change it to be more useful or redirect the user to a better place
+ */
 class SuperSecretPage extends Component {
   componentDidMount() {
-    this.props.fetch();
+    this.props.fetch(); // <-- you don't need to to do this because you're already fetching channels in authentication actions
   }
 
   render() {

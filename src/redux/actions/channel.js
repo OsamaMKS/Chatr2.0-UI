@@ -1,9 +1,15 @@
+/**
+ * These actions are all about fetching and sending messages
+ *
+ * Rename the file and its functions to match
+ */
+
 import { CHANNEL_DETAIL, SEND_MESSAGE } from ".//actionTypes";
 import { setErrors } from "./errors";
 import instance from "./instance";
 
 export const channelDetail = channelID => async dispatch => {
-  dispatch({ type: CHANNEL_DETAIL, payload: null });
+  dispatch({ type: CHANNEL_DETAIL, payload: null }); // <-- what's this for?
   try {
     const res = await instance.get(`channels/${channelID}/`);
     const channel = res.data;
@@ -23,6 +29,11 @@ export const sendMessages = (channelID, message, user, resetForm) => {
 
       const messageRes = res.data;
 
+      /**
+       * This isn't the format the backend is expecting.
+       *
+       * It's just expecting {message: <MESSAGE>}
+       */
       const messageDetail = {
         id: user.id,
         username: user.username,
