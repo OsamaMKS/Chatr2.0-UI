@@ -4,7 +4,7 @@ import instance from "./instance";
 import { fetchChannels } from "./channels";
 import { setErrors } from "./errors";
 
-import { SET_CURRENT_USER, SET_ERRORS } from "./actionTypes";
+import { SET_CURRENT_USER } from "./actionTypes";
 
 export const checkForExpiredToken = () => {
   return dispatch => {
@@ -25,7 +25,7 @@ export const checkForExpiredToken = () => {
         setAuthToken(token);
         // Set user
         dispatch(setCurrentUser(user));
-        dispatch(fetchChannels())
+        dispatch(fetchChannels());
       } else {
         dispatch(logout());
       }

@@ -1,10 +1,6 @@
-import {
-  ADD_CHANNEL,
-  SET_ERRORS,
-  FETCH_CHANNELS
-} from "../actions/actionTypes";
+import { ADD_CHANNEL, FETCH_CHANNELS } from "../actions/actionTypes";
 
-import { setErrors, resetErrors } from "./errors";
+import { setErrors } from "./errors";
 
 import instance from "./instance";
 

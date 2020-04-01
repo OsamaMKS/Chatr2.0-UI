@@ -13,7 +13,7 @@ import SuperSecretPage from "./components/SuperSecretPage";
 import ChannelForm from "./components/ChannelForm";
 import ChannelView from "./components/ChannelView";
 
-import bg from "./wmwp.jpg";
+import bg from "./assets/images/wmwp.jpg";
 import MessagesForm from "./components/MessagesForm";
 
 class App extends Component {
