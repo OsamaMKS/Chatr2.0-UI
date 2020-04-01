@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { setMessage, sendMessages } from "../redux/actions";
@@ -21,7 +21,7 @@ class SendingMessages extends Component {
 
   submitHandler = event => {
     event.preventDefault();
-    this.props.sendMessage(
+    this.props.SendMessages(
       this.props.channelID,
       this.state,
       this.props.user,
@@ -29,7 +29,6 @@ class SendingMessages extends Component {
     );
   };
   render() {
-
     if (!this.props.user) return <Redirect to="/login" />;
 
     return (
@@ -37,12 +36,12 @@ class SendingMessages extends Component {
         <form name="messageForm" onSubmit={this.submitHandler}>
           <div className="row" id="scroller">
             <div>
-              <label for="colFormLabelLg" style={{ marginLeft: "1rem " }}>
+              <label forhtml="colFormLabelLg" style={{ marginLeft: "1rem " }}>
                 message:
               </label>
               <input
                 type="text"
-                class="form-control form-control-lg"
+                className="form-control form-control-lg"
                 id="colFormLabelLg"
                 style={{
                   borderColor: "#e30090",
@@ -57,8 +56,7 @@ class SendingMessages extends Component {
                 placeholder="Write your message..."
                 onChange={this.changeHandler}
                 className="input"
-              >
-              </input>
+              ></input>
             </div>
 
             <button
@@ -80,14 +78,14 @@ const mapStateToProps = state => {
   return {
     user: state.user,
     channels: state.rootChannels.channels,
-    channel: state.rootChannel.setMessage
+    channel: state.rootChannel.messages
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     SetMessage: channelID => dispatch(setMessage(channelID)),
-    SendMessage: (channelID, message, user, resetForm) =>
+    SendMessages: (channelID, message, user, resetForm) =>
       dispatch(sendMessages(channelID, message, user, resetForm))
   };
 };
