@@ -10,5 +10,5 @@ export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const SET_ERRORS = "SET_ERRORS";
 
 //Msg
-export const SET_MESSAGE = "SET_MESSAGE";
+export const SET_MESSAGE = "SET_MESSAGE"; // SET_MESSAGES, plural, it's multiple messages not just one
 export const ADD_MESSAGE = "ADD_MESSAGE";

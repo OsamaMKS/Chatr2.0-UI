@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setMessage } from "../redux/actions";
-import Messages from "./MessagesForm";
+import Messages from "./MessagesForm"; // rename to AddMessageForm maybe?
 import Loading from "../assets/images/loading.gif";
 // import ScrollableFeed from "react-scrollable-feed";
 
@@ -29,6 +29,17 @@ class ChannelView extends Component {
   render() {
     const channelID = this.props.match.params.channelID;
 
+    /**
+     *
+     * Reverse the if-statement.
+     * So if the user is null redirect them,
+     * if there's no messages, display the loading watermelon
+     * then below that just return the rest. No need for an else.
+     *
+     * Move the .map() to outside the return.
+     * Put the JSX inside the .map() in a separate Message component.
+     *
+     */
     if (this.props.channel && this.props.user !== null) {
       return (
         <div>
@@ -65,7 +76,7 @@ class ChannelView extends Component {
           > */}
 
           <div className="navbar-brand">
-            <Messages channelID={this.props.match.params.channelID} />
+            <Messages channelID={channelID} />
           </div>
           <button
             className="navbar-toggler "
@@ -95,13 +106,14 @@ const mapStateToProps = state => {
   return {
     user: state.user,
     channelOwner: state.rootChannels.channels,
-    channels: state.rootChannels.channels,
+    channels: state.rootChannels.channels, // not being used
     channel: state.rootChannel.setMessages
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
+    // setMessages not SetMessage
     SetMessage: channelID => dispatch(setMessage(channelID))
   };
 };
