@@ -23,16 +23,16 @@ const ChannelNavLink = ({ channel }) => (
         <img
           src={channel.image_url}
           alt="CHANNEL_IMAGE"
-          width="25px"
-          height="25px"
+          width="17%"
+          height="17%"
           style={{ borderRadius: "50%" }}
         />
       ) : (
           <img
             src={defaul_image}
             alt="NO_IMAGE"
-            width="25px"
-            height="25px"
+            width="17%"
+            height="17%"
             style={{ borderRadius: "50%" }}
           />
         )}

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { setMessage } from "../redux/actions";
 import Messages from "./MessagesForm";
 import Loading from "../assets/images/loading.gif";
+import ScrollableFeed from 'react-scrollable-feed'
 
 class ChannelView extends Component {
 
@@ -28,7 +29,7 @@ class ChannelView extends Component {
   render() {
     if (this.props.channel) {
       return (
-        <div>
+        <div >
           {this.props.channel.map(msg => {
             return (
               <div
@@ -52,10 +53,12 @@ class ChannelView extends Component {
               </div>
             );
           })}
+
           {/* <nav
             className="navbar navbar-expand-md navbar-dark bg-dark fixed-bottom border border-white"
             style={{ marginLeft: "20%", width: "75%" }}
           > */}
+
           <div className="navbar-brand">
             <Messages channelID={this.props.match.params.channelID} />
           </div>

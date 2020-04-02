@@ -24,7 +24,8 @@ class SendingMessages extends Component {
     );
   };
   addEmoji = e => {
-    let emoji = e.native;
+    let emoji = ""
+    emoji += e.native;
     this.setState({
       message: this.state.message + emoji
     });
@@ -101,31 +102,31 @@ class SendingMessages extends Component {
                 >
                   <FontAwesomeIcon icon={faPaperPlane} />
                 </button>
-                <button>
-                  {this.state.showEmojis ? (
-                    <span ref={el => (this.emojiPicker = el)}>
-                      <Picker
-                        onSelect={this.addEmoji}
-                        emojiTooltip={true}
-                        title="Osama & Hammam"
-
-                      />
-                    </span>
-                  ) : (
-                      <p
-                        onClick={this.showEmojis}
-                        style={{ marginBottom: "5px", marginTop: "3px" }}
-                      >
-                        {String.fromCodePoint(0x1f60a)}
-                      </p>
-                    )}
-                </button>
               </div>
               <div />
               <div></div>
             </div>
           </div>
         </form>
+        <button >
+          {this.state.showEmojis ? (
+            <span ref={el => (this.emojiPicker = el)}>
+              <Picker
+                onSelect={this.addEmoji}
+                emojiTooltip={true}
+                title="Osama & Hammam"
+
+              />
+            </span>
+          ) : (
+              <p
+                onClick={this.showEmojis}
+                style={{ marginBottom: "5px", marginTop: "3px" }}
+              >
+                {String.fromCodePoint(0x1f60a)}
+              </p>
+            )}
+        </button>
       </div>
     );
   }
