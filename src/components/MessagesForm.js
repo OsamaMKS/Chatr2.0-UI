@@ -23,6 +23,7 @@ class SendingMessages extends Component {
       () => document.addEventListener("click", this.closeMenu)
     );
   };
+
   addEmoji = e => {
     let emoji = ""
     emoji += e.native;
@@ -30,6 +31,7 @@ class SendingMessages extends Component {
       message: this.state.message + emoji
     });
   };
+
   closeMenu = e => {
     console.log(this.emojiPicker);
     if (this.emojiPicker !== null && !this.emojiPicker.contains(e.target)) {
