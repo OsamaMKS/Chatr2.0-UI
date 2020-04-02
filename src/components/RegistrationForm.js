@@ -30,7 +30,10 @@ class RegistationForm extends Component {
     const errors = this.props.errors;
 
     return (
-      <div className="card col-6 mx-auto p-0 mt-5">
+      <div className="card col-6 mx-auto p-0 mt-5"
+        style={{
+          background: "rgba(255, 255, 255, 0.71)",
+        }}>
         <div className="card-body">
           <h5 className="card-title mb-4">
             {type === "login"

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import login from "../assets/images/login.png"
 
 class Welcome extends Component {
   render() {
@@ -13,7 +14,7 @@ class Welcome extends Component {
                 className="mb-1"
                 style={{
                   textShadow:
-                    "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
+                    "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff"
                 }}
               >
                 WELCOME TO CHATR
@@ -22,20 +23,20 @@ class Welcome extends Component {
                 className="mb-5 "
                 style={{
                   textShadow:
-                    "-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
+                    "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff"
                 }}
               >
                 <em>You're gonna need to login to see the messages</em>
               </h3>
-              <Link to="/login" className="btn btn-primary btn-lg">
-                Login
+              <Link to="/login" >
+                <img src={login} style={{ width: "25%", height: "25%" }} />
               </Link>
             </div>
             <div className="overlay z-0" />
           </header>
         ) : (
-          <Redirect to="/private" />
-        )}
+            <Redirect to="/private" />
+          )}
       </div>
     );
   }

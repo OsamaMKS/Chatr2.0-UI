@@ -25,7 +25,8 @@ class SendingMessages extends Component {
   };
 
   addEmoji = e => {
-    let emoji = e.native;
+    let emoji = ""
+    emoji += e.native;
     this.setState({
       message: this.state.message + emoji
     });
@@ -64,11 +65,14 @@ class SendingMessages extends Component {
     if (!this.props.user) return <Redirect to="/login" />;
 
     return (
-      <div style={{ textAlign: "center", position: "relative" }}>
+      <div className="container" style={{ textAlign: "center", position: "relative" }}>
         <form name="messageForm" onSubmit={this.submitHandler}>
           <div className="row" id="scroller">
             <div>
-              <label forhtml="colFormLabelLg" style={{ marginLeft: "1rem " }}>
+              <label forhtml="colFormLabelLg" style={{
+                marginLeft: "1rem ", textShadow:
+                  "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff"
+              }}>
                 message:
               </label>
               <input
@@ -87,41 +91,44 @@ class SendingMessages extends Component {
                 value={this.state.message}
                 placeholder="Write your message..."
                 onChange={this.changeHandler}
-              ></input>
-            </div>
-
-            <div>
-              <button
-                id="send"
-                type="submit"
-                value="Send"
-                style={{ marginTop: "5px", marginLeft: "5rem " }}
               >
-                <FontAwesomeIcon icon={faPaperPlane} />
-              </button>
-              <button>
-                {this.state.showEmojis ? (
-                  <span ref={el => (this.emojiPicker = el)}>
-                    <Picker
-                      onSelect={this.addEmoji}
-                      emojiTooltip={true}
-                      title="Osama & Hammam"
-                    />
-                  </span>
-                ) : (
-                  <p
-                    onClick={this.showEmojis}
-                    style={{ marginBottom: "5px", marginTop: "3px" }}
-                  >
-                    {String.fromCodePoint(0x1f60a)}
-                  </p>
-                )}
-              </button>
+
+              </input>
+
+              <div>
+                <button
+                  id="send"
+                  type="submit"
+                  value="Send"
+                  style={{ marginTop: "5px", marginLeft: "5rem " }}
+                >
+                  <FontAwesomeIcon icon={faPaperPlane} />
+                </button>
+              </div>
               <div />
               <div></div>
             </div>
           </div>
         </form>
+        <button >
+          {this.state.showEmojis ? (
+            <span ref={el => (this.emojiPicker = el)}>
+              <Picker
+                onSelect={this.addEmoji}
+                emojiTooltip={true}
+                title="Osama & Hammam"
+
+              />
+            </span>
+          ) : (
+              <p
+                onClick={this.showEmojis}
+                style={{ marginBottom: "5px", marginTop: "3px" }}
+              >
+                {String.fromCodePoint(0x1f60a)}
+              </p>
+            )}
+        </button>
       </div>
     );
   }

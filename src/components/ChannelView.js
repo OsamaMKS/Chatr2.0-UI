@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { setMessage } from "../redux/actions";
 import Messages from "./MessagesForm";
 import Loading from "../assets/images/loading.gif";
+// import ScrollableFeed from "react-scrollable-feed";
 
 class ChannelView extends Component {
   componentDidMount() {
@@ -57,10 +58,12 @@ class ChannelView extends Component {
               </div>
             );
           })}
+
           {/* <nav
             className="navbar navbar-expand-md navbar-dark bg-dark fixed-bottom border border-white"
             style={{ marginLeft: "20%", width: "75%" }}
           > */}
+
           <div className="navbar-brand">
             <Messages channelID={this.props.match.params.channelID} />
           </div>
@@ -72,6 +75,7 @@ class ChannelView extends Component {
             aria-controls="navbarResponsive"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            fixed="bottom"
           >
             <span className="navbar-toggler-icon" />
           </button>

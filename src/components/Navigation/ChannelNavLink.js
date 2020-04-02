@@ -12,29 +12,30 @@ const ChannelNavLink = ({ channel }) => (
     data-toggle="tooltip"
     data-placement="right"
     title={channel.name}
+
   >
     <NavLink
       className="nav-link"
       to={`/ChannelView/${channel.id}`}
-      // onClick="scrollWin(0, 50)"
+    // onClick="scrollWin(0, 50)"
     >
       {channel.image_url ? (
         <img
           src={channel.image_url}
           alt="CHANNEL_IMAGE"
-          width="25px"
-          height="25px"
+          width="17%"
+          height="17%"
           style={{ borderRadius: "50%" }}
         />
       ) : (
-        <img
-          src={defaul_image}
-          alt="NO_IMAGE"
-          width="25px"
-          height="25px"
-          style={{ borderRadius: "50%" }}
-        />
-      )}
+          <img
+            src={defaul_image}
+            alt="NO_IMAGE"
+            width="17%"
+            height="17%"
+            style={{ borderRadius: "50%" }}
+          />
+        )}
       <span className="nav-link-text"> {channel.name}</span>
     </NavLink>
   </li>
