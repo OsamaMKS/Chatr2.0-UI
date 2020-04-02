@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { addChannel } from "../redux/actions";
 import { connect } from "react-redux";
+import create from "../assets/images/create.png"
+
 class ChannelForm extends Component {
+
   state = {
     name: "",
     image_url: ""
@@ -29,9 +32,12 @@ class ChannelForm extends Component {
     const errors = this.props.errors;
 
     return (
-      <div className="card col-6 mx-auto p-0 mt-5">
+      <div className="card col-6 mx-auto p-0 mt-5"
+        style={{
+          background: "rgba(255, 255, 255, 0.71)",
+        }}>
         <div className="card-body">
-          <h2 className="card-title mt-5 text-center text-white">
+          <h2 className="card-title mt-5 text-center text-black">
             {" "}
             Create a new Channel{" "}
           </h2>
@@ -69,7 +75,7 @@ class ChannelForm extends Component {
                 </div>
                 <input
                   type="text"
-                  className="form-control border-0 text-black"
+                  className="form-control border text-black"
                   name="image_url"
                   onChange={this.onTextchange}
                 />
@@ -78,9 +84,10 @@ class ChannelForm extends Component {
                 <button
                   id="btnlog"
                   type="submit"
-                  className=" btn btn-primary btn-block rounded-pill "
+                  className=" btn "
+                  style={{ width: "30%", height: "30%" }}
                 >
-                  Create
+                  <img src={create} style={{ width: "100%", height: "100%" }} />
                 </button>
               </div>
             </form>
