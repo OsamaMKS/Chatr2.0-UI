@@ -3,6 +3,8 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 // Scripts
 import main from "./assets/js/main";
+import ReactDOM from "react-dom";
+import ScrollableAnchor from "react-scrollable-anchor";
 
 // Components
 import NavBar from "./components/Navigation/NavBar";
