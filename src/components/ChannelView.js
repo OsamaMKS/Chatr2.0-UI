@@ -5,6 +5,7 @@ import Messages from "./MessagesForm";
 import Loading from "../assets/images/loading.gif";
 
 class ChannelView extends Component {
+
   componentDidMount() {
     const channelID = this.props.match.params.channelID;
     this.props.SetMessage(channelID);
@@ -66,6 +67,7 @@ class ChannelView extends Component {
             aria-controls="navbarResponsive"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            fixed="bottom"
           >
             <span className="navbar-toggler-icon" />
           </button>
