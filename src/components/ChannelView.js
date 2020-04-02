@@ -6,6 +6,7 @@ import Loading from "../assets/images/loading.gif";
 
 class ChannelView extends Component {
   componentDidMount() {
+    window.scrollTo(500, 0);
     const channelID = this.props.match.params.channelID;
     this.props.SetMessage(channelID);
     this.interval = setInterval(() => this.props.SetMessage(channelID), 5000);
@@ -25,9 +26,14 @@ class ChannelView extends Component {
   }
 
   render() {
-    if (this.props.channel) {
+    const channelID = this.props.match.params.channelID;
+
+    if (this.props.channel && this.props.user !== null) {
       return (
         <div>
+          <div>
+            <h1>Created by:{this.props.channelOwner[0].owner}</h1>
+          </div>
           {this.props.channel.map(msg => {
             return (
               <div
@@ -84,6 +90,7 @@ class ChannelView extends Component {
 const mapStateToProps = state => {
   return {
     user: state.user,
+    channelOwner: state.rootChannels.channels,
     channels: state.rootChannels.channels,
     channel: state.rootChannel.setMessages
   };
