@@ -5,6 +5,14 @@ const initialState = {
   messages: []
 };
 
+/*
+ *
+ * I don't think you're using messages at all.
+ * You can either remoev messages and rename setMessages to messages,
+ * or combine them into a single property for messages.
+ *
+ */
+
 const channelReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_MESSAGE:

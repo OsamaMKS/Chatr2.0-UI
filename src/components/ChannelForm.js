@@ -2,10 +2,13 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { addChannel } from "../redux/actions";
 import { connect } from "react-redux";
-import create from "../assets/images/create.png"
+import create from "../assets/images/create.png";
+
+// Use Prettier to keep the code formatted.
+// For some reason, this file wasn't formatted while others were.
+// Both of you need to use it.
 
 class ChannelForm extends Component {
-
   state = {
     name: "",
     image_url: ""
@@ -23,6 +26,10 @@ class ChannelForm extends Component {
 
   submitChannel = event => {
     event.preventDefault();
+    // you can resetForm here after calling the action
+    // no need to pass resetForm as a parameter
+    // also no need to pass history, it's not being used anyway,
+    // and you can use it here if you'd like.
     this.props.addChannel(this.state, this.resetForm, this.props.history);
   };
 
@@ -32,10 +39,12 @@ class ChannelForm extends Component {
     const errors = this.props.errors;
 
     return (
-      <div className="card col-6 mx-auto p-0 mt-5"
+      <div
+        className="card col-6 mx-auto p-0 mt-5"
         style={{
-          background: "rgba(255, 255, 255, 0.71)",
-        }}>
+          background: "rgba(255, 255, 255, 0.71)"
+        }}
+      >
         <div className="card-body">
           <h2 className="card-title mt-5 text-center text-black">
             {" "}

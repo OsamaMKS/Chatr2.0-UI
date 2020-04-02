@@ -34,6 +34,8 @@ class App extends Component {
           <Switch>
             <Route path="/(login|signup)" component={RegistrationForm} />
             <Route path="/welcome" component={Welcome} />
+
+            {/* Reminder to remove this route */}
             <Route
               path="/channelView/:channelID/send"
               component={MessagesForm}

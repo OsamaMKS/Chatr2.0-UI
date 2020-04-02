@@ -2,6 +2,7 @@ import { SET_MESSAGE, ADD_MESSAGE } from ".//actionTypes";
 import { setErrors } from "./errors";
 import instance from "./instance";
 
+// I'd rename this to setMessages
 export const setMessage = channelID => async dispatch => {
   try {
     const res = await instance.get(`channels/${channelID}/`);
