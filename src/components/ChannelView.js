@@ -48,8 +48,8 @@ class ChannelView extends Component {
                       marginRight: "50%"
                     }}
                   >
-                    <div className="card-body " >
-                      <p className="text-danger">{msg.username + ": "}</p>
+                    <div className="card-body" >
+                      <p className="text-danger">{msg.username + ":"}</p>
                       <h5 className="text-dark">{msg.message}</h5>
                     </div>
 

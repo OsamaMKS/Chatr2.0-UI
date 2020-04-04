@@ -12,7 +12,7 @@ class SuperSecretPage extends Component {
         <div className="card-img-overlay text-center" style={{
           textShadow:
             "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff",
-          marginTop: "12%"
+          marginTop: "5.5%"
         }}>
           <h1 className="">Hi {this.props.user.username} .. </h1>
           <h1>Welcome to ChatMelon 2.0</h1>
