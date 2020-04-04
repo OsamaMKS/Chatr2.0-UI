@@ -52,6 +52,7 @@ class ChannelView extends Component {
           {this.props.setMessages.map((msg) => {
             return (
               <div
+                className="col-12"
                 key={msg.id}
                 style={
                   msg.username !== this.props.user.username
@@ -59,20 +60,37 @@ class ChannelView extends Component {
                     : { marginLeft: "20px", textAlign: " right" }
                 }
               >
-                <div
-                  className="card border-dark mb-3"
-                  style={{
-                    maxWidth: "40rem",
-                    background: "rgba(255, 255, 255, 0.71)",
-                    textShadow:
-                      "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff",
-                  }}
-                >
-                  <div className="card-body ">
-                    <h5 className="text-secondary">{msg.username + ": "}</h5>
-                    <h6 className="text-dark">{msg.message}</h6>
+                {msg.username !== this.props.user.username ? (
+                  <div
+                    className="card border-danger  mb-3 "
+                    style={{
+                      borderWidth: "medium",
+                      background: "rgba(255, 255, 255, 0.71)",
+                      marginRight: "50%",
+                    }}
+                  >
+                    <div className="card-body ">
+                      <p className="text-danger">{msg.username + ": "}</p>
+                      <h5 className="text-dark">{msg.message}</h5>
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div
+                    className="card border-success  mb-3 "
+                    style={{
+                      borderWidth: "medium",
+                      background: "rgba(255, 255, 255, 0.71)",
+                      marginLeft: "50%",
+                      marginRight: "2.5%",
+                    }}
+                  >
+                    <div className="card-body ">
+                      <h5 className="text-dark text-right mr-3">
+                        {msg.message}
+                      </h5>
+                    </div>
+                  </div>
+                )}
               </div>
             );
           })}
