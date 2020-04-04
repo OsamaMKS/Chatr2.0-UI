@@ -1,10 +1,12 @@
-import { SET_MESSAGE, ADD_MESSAGE } from ".//actionTypes";
+import { SET_MESSAGE, ADD_MESSAGE, CLEAR_MESSAGES } from ".//actionTypes";
 import { setErrors } from "./errors";
 import instance from "./instance";
 
-export const setMessage = channelID => async dispatch => {
+export const setMessage = (channelID, timestamp) => async dispatch => {
   try {
-    const res = await instance.get(`channels/${channelID}/`);
+    const res = await instance.get(
+      `channels/${channelID}/?latest=${timestamp}`
+    );
     const channel = res.data;
     dispatch({
       type: SET_MESSAGE,
@@ -13,6 +15,12 @@ export const setMessage = channelID => async dispatch => {
   } catch (error) {
     dispatch(setErrors(error));
   }
+};
+
+export const clearMessages = () => {
+  return {
+    type: CLEAR_MESSAGES
+  };
 };
 
 export const sendMessages = (channelID, message, user, resetForm) => {

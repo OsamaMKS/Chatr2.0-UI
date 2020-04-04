@@ -138,7 +138,6 @@ body.fixed-nav {
   top: 5px;
   left: 21px;
   font-size: 10px;
-  
 }
 
 #mainNav
@@ -499,12 +498,11 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   }
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a {
     color: white !important;
-    background-color: #343a40
+    background-color: #343a40;
   }
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a:focus,
   #mainNav.navbar-dark .navbar-collapse .navbar-sidenav li.active a:hover {
     color: white;
-    
   }
   #mainNav.navbar-dark
     .navbar-collapse

@@ -25,7 +25,7 @@ class SendingMessages extends Component {
   };
 
   addEmoji = e => {
-    let emoji = ""
+    let emoji = "";
     emoji += e.native;
     this.setState({
       message: this.state.message + emoji
@@ -60,19 +60,30 @@ class SendingMessages extends Component {
       this.props.user,
       this.resetForm
     );
+    // this.props.SetMessage(
+    //   this.props.channelID,
+    //   this.props.channel[this.props.channel.length - 1].timestamp
+    // );
   };
   render() {
     if (!this.props.user) return <Redirect to="/login" />;
 
     return (
-      <div className="container" style={{ textAlign: "center", position: "relative" }}>
+      <div
+        className="container"
+        style={{ textAlign: "center", position: "relative" }}
+      >
         <form name="messageForm" onSubmit={this.submitHandler}>
           <div className="row" id="scroller">
             <div>
-              <label forhtml="colFormLabelLg" style={{
-                marginLeft: "1rem ", textShadow:
-                  "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff"
-              }}>
+              <label
+                forhtml="colFormLabelLg"
+                style={{
+                  marginLeft: "1rem ",
+                  textShadow:
+                    "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff"
+                }}
+              >
                 message:
               </label>
               <input
@@ -91,9 +102,7 @@ class SendingMessages extends Component {
                 value={this.state.message}
                 placeholder="Write your message..."
                 onChange={this.changeHandler}
-              >
-
-              </input>
+              ></input>
 
               <div>
                 <button
@@ -110,24 +119,23 @@ class SendingMessages extends Component {
             </div>
           </div>
         </form>
-        <button >
+        <button>
           {this.state.showEmojis ? (
             <span ref={el => (this.emojiPicker = el)}>
               <Picker
                 onSelect={this.addEmoji}
                 emojiTooltip={true}
                 title="Osama & Hammam"
-
               />
             </span>
           ) : (
-              <p
-                onClick={this.showEmojis}
-                style={{ marginBottom: "5px", marginTop: "3px" }}
-              >
-                {String.fromCodePoint(0x1f60a)}
-              </p>
-            )}
+            <p
+              onClick={this.showEmojis}
+              style={{ marginBottom: "5px", marginTop: "3px" }}
+            >
+              {String.fromCodePoint(0x1f60a)}
+            </p>
+          )}
         </button>
       </div>
     );
@@ -144,7 +152,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    SetMessage: channelID => dispatch(setMessage(channelID)),
+    SetMessage: (channelID, timestamp) =>
+      dispatch(setMessage(channelID, timestamp)),
     SendMessages: (channelID, message, user, resetForm) =>
       dispatch(sendMessages(channelID, message, user, resetForm))
   };
