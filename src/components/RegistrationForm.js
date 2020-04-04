@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { signup, login } from "../redux/actions";
+import signupPic from "../assets/images/signup.png"
+import loginPic from "../assets/images/login.png"
 class RegistationForm extends Component {
   state = {
     username: "",
@@ -66,11 +68,13 @@ class RegistationForm extends Component {
                 onChange={this.changeHandler}
               />
             </div>
-            <input
-              className="btn btn-primary"
+            <button id="btnlog"
               type="submit"
-              value={type.replace(/^\w/, c => c.toUpperCase())}
-            />
+              className=" btn "
+              style={{ width: "30%", height: "30%" }}>
+              {type === "login" ? <img type="submit" src={loginPic} style={{ width: "100%", height: "100%" }} />
+                : <img src={signupPic} style={{ width: "100%", height: "100%" }} />}
+            </button>
           </form>
         </div>
         <div className="card-footer">

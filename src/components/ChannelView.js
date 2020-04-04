@@ -7,7 +7,6 @@ import Loading from "../assets/images/loading.gif";
 
 class ChannelView extends Component {
   componentDidMount() {
-    window.scrollTo(500, 0);
     const channelID = this.props.match.params.channelID;
     this.props.SetMessage(channelID);
     this.interval = setInterval(() => this.props.SetMessage(channelID), 5000);
@@ -31,33 +30,55 @@ class ChannelView extends Component {
 
     if (this.props.channel && this.props.user !== null) {
       return (
-        <div>
-          <div>
-            <h1>Created by:{this.props.channelOwner[0].owner}</h1>
-          </div>
+        <center className="row " >
+
           {this.props.channel.map(msg => {
             return (
               <div
+                className="col-12"
                 key={msg.id}
                 style={{ marginLeft: "20px", textAlign: "left" }}
               >
-                <div
-                  className="card border-dark mb-3"
-                  style={{
-                    maxWidth: "40rem",
-                    background: "rgba(255, 255, 255, 0.71)",
-                    textShadow:
-                      "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff"
-                  }}
-                >
-                  <div className="card-body ">
-                    <h5 className="text-secondary">{msg.username + ": "}</h5>
-                    <h6 className="text-dark">{msg.message}</h6>
+                {msg.username !== this.props.user.username ?
+                  <div
+                    className="card border-danger  mb-3 "
+                    style={{
+                      borderWidth: "medium",
+                      background: "rgba(255, 255, 255, 0.71)",
+                      marginRight: "50%"
+                    }}
+                  >
+                    <div className="card-body " >
+                      <p className="text-danger">{msg.username + ": "}</p>
+                      <h5 className="text-dark">{msg.message}</h5>
+                    </div>
+
                   </div>
-                </div>
-              </div>
+                  :
+                  <div
+                    className="card border-success  mb-3 "
+                    style={{
+                      borderWidth: "medium",
+                      background: "rgba(255, 255, 255, 0.71)",
+                      marginLeft: "50%",
+                      marginRight: "2.5%"
+                    }}
+                  >
+                    <div className="card-body ">
+                      <h5 className="text-dark text-right mr-3"
+                      >{msg.message}</h5>
+                    </div>
+
+                  </div>}
+
+
+
+              </div >
+
+
             );
-          })}
+          })
+          }
 
           {/* <nav
             className="navbar navbar-expand-md navbar-dark bg-dark fixed-bottom border border-white"
@@ -80,7 +101,7 @@ class ChannelView extends Component {
             <span className="navbar-toggler-icon" />
           </button>
           {/* </nav> */}
-        </div>
+        </center >
       );
     } else {
       return (
@@ -94,7 +115,7 @@ class ChannelView extends Component {
 const mapStateToProps = state => {
   return {
     user: state.user,
-    channelOwner: state.rootChannels.channels,
+    channelOwner: state.rootChannels.channels[0],
     channels: state.rootChannels.channels,
     channel: state.rootChannel.setMessages
   };
