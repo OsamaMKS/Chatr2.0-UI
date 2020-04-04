@@ -1,7 +1,8 @@
 import { ADD_CHANNEL, FETCH_CHANNELS } from "../actions/actionTypes";
 
 const initialState = {
-  channels: []
+  channels: [],
+  messages: []
 };
 
 const channelsReducer = (state = initialState, action) => {
@@ -12,6 +13,7 @@ const channelsReducer = (state = initialState, action) => {
         ...state,
         channels: channels
       };
+
     case ADD_CHANNEL:
       const addedChannels = [action.payload].concat(state.channels);
       return {

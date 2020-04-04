@@ -3,8 +3,6 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 // Scripts
 import main from "./assets/js/main";
-// import ReactDOM from "react-dom";
-// import ScrollableAnchor from "react-scrollable-anchor";
 
 // Components
 import NavBar from "./components/Navigation/NavBar";
@@ -16,7 +14,6 @@ import ChannelForm from "./components/ChannelForm";
 import ChannelView from "./components/ChannelView";
 
 import bg from "./assets/images/wmwp.jpg";
-import MessagesForm from "./components/MessagesForm";
 
 class App extends Component {
   componentDidMount() {
@@ -34,10 +31,7 @@ class App extends Component {
           <Switch>
             <Route path="/(login|signup)" component={RegistrationForm} />
             <Route path="/welcome" component={Welcome} />
-            <Route
-              path="/channelView/:channelID/send"
-              component={MessagesForm}
-            />
+
             <Route path="/ChannelView/:channelID" component={ChannelView} />
             <Route path="/private" component={SuperSecretPage} />
             <Route path="/createChannel" component={ChannelForm} />
