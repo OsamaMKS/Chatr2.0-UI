@@ -12,9 +12,9 @@ const NavBar = () => (
       className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
       id="mainNav"
     >
-      <Link className="navbar-brand" to="/">
-        Chatr2.0
-      </Link>
+      <Link className="navbar-brand text-danger" to="/">
+        ChatMelon 2.0
+          </Link>
 
       <button
         className="navbar-toggler navbar-toggler-right"
