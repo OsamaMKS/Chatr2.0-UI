@@ -14,6 +14,7 @@ import ChannelForm from "./components/ChannelForm";
 import ChannelView from "./components/ChannelView";
 
 import bg from "./assets/images/wmwp.jpg";
+import Bot from "./components/CustomChatbot";
 
 class App extends Component {
   componentDidMount() {
@@ -37,6 +38,8 @@ class App extends Component {
             <Route path="/createChannel" component={ChannelForm} />
             <Redirect to="/welcome" />
           </Switch>
+          <Bot />
+
           <Footer />
         </div>
       </div>

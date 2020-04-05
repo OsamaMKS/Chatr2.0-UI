@@ -9,6 +9,7 @@ class Welcome extends Component {
       <div>
         {!this.props.user ? (
           <header className="masthead d-flex">
+
             <div className="container text-center my-auto z-1">
               <h1
                 className="mb-1"
@@ -39,8 +40,8 @@ class Welcome extends Component {
             <div className="overlay z-0" />
           </header>
         ) : (
-          <Redirect to="/private" />
-        )}
+            <Redirect to="/private" />
+          )}
       </div>
     );
   }
