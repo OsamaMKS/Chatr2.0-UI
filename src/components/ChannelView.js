@@ -87,7 +87,7 @@ class ChannelView extends Component {
                       {this.isUrlAndIsExtension(msg.message) ? (
                         <ReactImageFallback
                           src={msg.message}
-                          fallbackImage="https://legacyogden.com/wp-content/uploads/2015/07/No-Image-Available1.png"
+                          fallbackImage="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/No_image_available_600_x_450.svg/600px-No_image_available_600_x_450.svg.png"
                           style={{
                             width: "50%",
                             height: "50%",
@@ -99,22 +99,22 @@ class ChannelView extends Component {
                     </div>
                   </div>
                 ) : (
-                    <div
-                      className="card border-success  mb-3 "
-                      style={{
-                        borderWidth: "medium",
-                        background: "rgba(255, 255, 255, 0.71)",
-                        marginLeft: "50%",
-                        marginRight: "2.5%",
-                      }}
-                    >
-                      <div className="card-body ">
-                        <h5 className="text-dark text-right mr-3">
-                          {msg.message}
-                        </h5>
-                      </div>
+                  <div
+                    className="card border-success  mb-3 "
+                    style={{
+                      borderWidth: "medium",
+                      background: "rgba(255, 255, 255, 0.71)",
+                      marginLeft: "50%",
+                      marginRight: "2.5%",
+                    }}
+                  >
+                    <div className="card-body ">
+                      <h5 className="text-dark text-right mr-3">
+                        {msg.message}
+                      </h5>
                     </div>
-                  )}
+                  </div>
+                )}
               </div>
             );
           })}
