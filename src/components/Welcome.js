@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import login from "../assets/images/login.png"
+import login from "../assets/images/login.png";
 
 class Welcome extends Component {
   render() {
@@ -9,6 +9,7 @@ class Welcome extends Component {
       <div>
         {!this.props.user ? (
           <header className="masthead d-flex">
+
             <div className="container text-center my-auto z-1">
               <h1
                 className="mb-1"
@@ -28,8 +29,12 @@ class Welcome extends Component {
               >
                 <em>You're gonna need to login to see the messages</em>
               </h3>
-              <Link to="/login" >
-                <img src={login} style={{ width: "25%", height: "25%" }} />
+              <Link to="/login">
+                <img
+                  src={login}
+                  alt="sign in"
+                  style={{ width: "25%", height: "25%" }}
+                />
               </Link>
             </div>
             <div className="overlay z-0" />

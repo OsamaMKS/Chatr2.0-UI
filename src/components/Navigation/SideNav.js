@@ -3,15 +3,11 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 // Fontawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAngleLeft,
-  faAngleRight,
-  faPlusCircle
-} from "@fortawesome/free-solid-svg-icons";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 // Components
 import ChannelNavLink from "./ChannelNavLink";
-import plus from "../../assets/images/plus.png"
+import plus from "../../assets/images/plus.png";
 
 class SideNav extends React.Component {
   state = { collapsed: false };
@@ -26,7 +22,6 @@ class SideNav extends React.Component {
           <ul
             className="navbar-nav navbar-sidenav bgside"
             id="exampleAccordion"
-
           >
             <li
               className="nav-item"
@@ -35,7 +30,11 @@ class SideNav extends React.Component {
             >
               <Link className="nav-link heading" to="/createChannel">
                 <span className="nav-link-text mr-2 sidelink">Channels</span>
-                <img src={plus} style={{ width: "20%", height: "20%" }} />
+                <img
+                  src={plus}
+                  alt="channels"
+                  style={{ width: "20%", height: "20%" }}
+                />
               </Link>
             </li>
             {channelLinks}
