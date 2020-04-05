@@ -8,6 +8,7 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 import "emoji-mart/css/emoji-mart.css";
 import { Picker } from "emoji-mart";
+import waterMelonE from "../assets/images/watermelonE.png";
 
 class SendingMessages extends Component {
   state = {
@@ -60,10 +61,6 @@ class SendingMessages extends Component {
       this.props.user,
       this.resetForm
     );
-    // this.props.SetMessage(
-    //   this.props.channelID,
-    //   this.props.channel[this.props.channel.length - 1].timestamp
-    // );
   };
   render() {
     if (!this.props.user) return <Redirect to="/login" />;
