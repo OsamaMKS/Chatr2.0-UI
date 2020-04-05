@@ -84,14 +84,14 @@ class SendingMessages extends Component {
               />
             </span>
           ) : (
-            <p
-              onClick={this.showEmojis}
-              style={{ marginBottom: "5px", marginTop: "3px" }}
-              className=""
-            >
-              {String.fromCodePoint(0x1f60a)}
-            </p>
-          )}
+              <p
+                onClick={this.showEmojis}
+                style={{ marginBottom: "5px", marginTop: "3px" }}
+                className=""
+              >
+                {String.fromCodePoint(0x1f60a)}
+              </p>
+            )}
         </button>
         <form name="messageForm" onSubmit={this.submitHandler}>
           <div id="scroller">
@@ -109,7 +109,7 @@ class SendingMessages extends Component {
                 className="form-control form-control-lg input col"
                 id="colFormLabel"
                 style={{
-                  borderColor: "#e30090",
+                  borderColor: "#fffff",
                   borderWidth: "2px",
                   hight: "100px",
                   width: "90rem",

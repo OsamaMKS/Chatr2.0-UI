@@ -48,7 +48,7 @@ class SuperSecretPage extends Component {
 
           <button
             type="button"
-            className="btn btn-success btn-lg btn-block mt-2"
+            className="btn btn-danger btn-lg btn-block mt-2"
             style={{ width: "80%", opacity: "0.9" }}
           >
             <a
@@ -62,7 +62,7 @@ class SuperSecretPage extends Component {
           </button>
           <button
             type="button"
-            className="btn btn-danger btn-lg btn-block mt-2"
+            className="btn btn-success btn-lg btn-block mt-2"
             style={{ width: "80%", opacity: "0.9" }}
           >
             <a
