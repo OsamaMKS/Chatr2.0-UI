@@ -23,6 +23,7 @@ class ChannelForm extends Component {
   submitChannel = event => {
     event.preventDefault();
     this.props.addChannel(this.state, this.resetForm, this.props.history);
+
   };
 
   render() {
