@@ -4,6 +4,8 @@ import { setMessage } from "../redux/actions";
 import Messages from "./MessagesForm";
 import Loading from "../assets/images/loading.gif";
 import { CLEAR_MESSAGES } from "../redux/actions/actionTypes";
+import ReactImageFallback from "react-image-fallback";
+import Nav from "./Navigation/NavBar";
 
 class ChannelView extends Component {
   theMessagesInterval() {
@@ -44,6 +46,16 @@ class ChannelView extends Component {
       this.messagesEnd.scrollIntoView({ behavior: "smooth" });
     }
   };
+  isUrlAndIsExtension(url) {
+    const isvalid =
+      url.includes("https://") ||
+      url.includes("http://") ||
+      url.includes("jpg") ||
+      url.includes("png") ||
+      url.includes("gif") ||
+      url.includes("jpeg");
+    return isvalid;
+  }
 
   render() {
     if (this.props.setMessages && this.props.user !== null) {
@@ -71,7 +83,19 @@ class ChannelView extends Component {
                   >
                     <div className="card-body ">
                       <p className="text-danger">{msg.username + ": "}</p>
-                      <h5 className="text-dark">{msg.message}</h5>
+
+                      {this.isUrlAndIsExtension(msg.message) ? (
+                        <ReactImageFallback
+                          src={msg.message}
+                          fallbackImage="https://legacyogden.com/wp-content/uploads/2015/07/No-Image-Available1.png"
+                          style={{
+                            width: "50%",
+                            height: "50%",
+                          }}
+                        />
+                      ) : (
+                        <p className="textMessage">{msg.message}</p>
+                      )}
                     </div>
                   </div>
                 ) : (
@@ -133,6 +157,7 @@ class ChannelView extends Component {
 const mapStateToProps = (state) => {
   return {
     user: state.user,
+    channel: state.rootChannels.channels,
     setMessages: state.rootChannel.setMessages,
   };
 };
