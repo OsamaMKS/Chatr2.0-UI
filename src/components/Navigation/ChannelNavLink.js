@@ -11,14 +11,9 @@ const ChannelNavLink = ({ channel }) => (
     className="nav-item"
     data-toggle="tooltip"
     data-placement="right"
-    title={channel.name}
-
+    title={`Owner: ${channel.owner}`}
   >
-    <NavLink
-      className="nav-link"
-      to={`/ChannelView/${channel.id}`}
-    // onClick="scrollWin(0, 50)"
-    >
+    <NavLink className="nav-link" to={`/ChannelView/${channel.id}`}>
       {channel.image_url ? (
         <img
           src={channel.image_url}
@@ -28,15 +23,16 @@ const ChannelNavLink = ({ channel }) => (
           style={{ borderRadius: "50%" }}
         />
       ) : (
-          <img
-            src={defaul_image}
-            alt="NO_IMAGE"
-            width="17%"
-            height="17%"
-            style={{ borderRadius: "50%" }}
-          />
-        )}
+        <img
+          src={defaul_image}
+          alt="NO_IMAGE"
+          width="17%"
+          height="17%"
+          style={{ borderRadius: "50%" }}
+        />
+      )}
       <span className="nav-link-text"> {channel.name}</span>
+      <br />
     </NavLink>
   </li>
 );
